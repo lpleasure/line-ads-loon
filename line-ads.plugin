@@ -1,0 +1,22 @@
+#!name = LINE 去广告
+#!desc = 0.1.0；广告接口定向拦截；保留底部标签；需启用 MitM 并信任证书；未实机验证。
+#!author = lpleasure
+#!homepage = https://github.com/lpleasure/line-tabs-loon
+#!system = iOS,iPadOS
+#!date = 2026-10-24
+
+# Endpoint reference: https://github.com/jkgtw/Surge/blob/master/Modules/LINE-ADs.sgmodule
+# Only explicit advertising endpoints; no generic media, chat or Home module blocking.
+[Rule]
+DOMAIN,ad.line-scdn.net,REJECT
+URL-REGEX,^https://a\.line\.me(?::443)?/(?:lass/api/v\d+/ads|oa/v\d+/e|cs/v\d+/oa)(?:\?|$),REJECT
+URL-REGEX,^https://(?:gw\.line\.naver\.jp|legy\.line-apps\.com)(?::443)?/ext/lgfp/lad/v\d+(?:\?|$),REJECT
+URL-REGEX,^https://gw\.line\.naver\.jp(?::443)?/lass/api/v\d+/ads(?:\?|$),REJECT
+URL-REGEX,^https://legy\.line-apps\.com(?::443)?/ext/smartch/banner/sch/v\d+(?:\?|$),REJECT
+URL-REGEX,^https://w\.line\.me(?::443)?/adp/api/ad/v\d+/,REJECT
+URL-REGEX,^https://sch\.line\.me(?::443)?/api/v\d+/ads(?:\?|$),REJECT
+URL-REGEX,^https://static\.line-scdn\.net(?::443)?/ad-sdk/,REJECT
+URL-REGEX,^https://scdn\.line-apps\.com(?::443)?/lan/(?:image/line/bannerImageEvent/|document/pageEvent/line/ios/),REJECT
+
+[Mitm]
+hostname = a.line.me, gw.line.naver.jp, legy.line-apps.com, w.line.me, sch.line.me, static.line-scdn.net, scdn.line-apps.com
