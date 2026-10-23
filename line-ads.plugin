@@ -1,5 +1,5 @@
 #!name = LINE 去广告
-#!desc = 0.1.0；广告接口定向拦截；保留底部标签；需启用 MitM 并信任证书；未实机验证。
+#!desc = 0.1.0；广告接口定向拦截；需启用 MitM 并信任证书；未实机验证。
 #!author = lpleasure
 #!homepage = https://github.com/lpleasure/line-tabs-loon
 #!system = iOS,iPadOS
